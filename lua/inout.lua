@@ -1,21 +1,8 @@
 local M = {}
 
-DIRECTORIES = require("lua.paths.directories")
 BASH_FILES = require("lua.paths.bash_files")
 
--- constantes de paths
-SEAGATE = DIRECTORIES.SEAGATE
-WORKSPACE = DIRECTORIES.WORKSPACE
-
-CODING = DIRECTORIES.CODING
-GODOT = DIRECTORIES.GODOT
-
-function CD(path)
-    -- escrever o comando de cd pro diretório passado pra função. isso só escreve a string do comando, não executa ele
-    return "cd " .. path
-end
-
-local function read_existing_data(path)
+function M.read_existing_data(path)
     local existing_lines = {}
     
     -- abrir e começar a ler o arquivo
@@ -32,30 +19,23 @@ local function read_existing_data(path)
     return existing_lines
 end
 
-function M.write_aliases()
+function M.write_aliases(aliases_table)
     -- importar o caminho do aliases.sh
-    local bash_file = BASH_FILES.aliases
-
-    -- definir quais aliases vão existir
-    local aliases = {
-        seagate = CD(SEAGATE),
-        coding = CD(CODING),
-        godot = CD(GODOT)
-    }
+    local bash_file = BASH_FILES.ALIASES
 
     -- ler quais são as linhas que já existem no arquivo
-    local already_written_lines = read_existing_data(bash_file)
+    local existing_lines = M.read_existing_data(bash_file)
 
     -- abrir o arquivo em que os aliases vão ser escritos
     local file = io.open(bash_file, "a")
-    if not file then print("Error while trying to open aliases file: " .. bash_file); os.exit(1) end
+    if not file then print("Error while trying to open aliases file\nPath: " .. bash_file); os.exit(1) end
 
-    -- escrever uma linha no final do arquivo com cada alias da tabela (no formato: alias ='path/aqui')
-    for key, value in pairs(aliases) do
+    -- escrever uma linha no final do arquivo com cada alias da tabela (no formato: alias ='comando aqui')
+    for key, value in pairs(aliases_table) do
         local formatted_alias = string.format("alias %s='%s'", key, value)
 
         -- só realmente escrever se ela já não existir no arquivo. se não existir, escreve e quebra pra próxima linha
-        if not already_written_lines[formatted_alias] then
+        if not existing_lines[formatted_alias] then
             file:write(formatted_alias .. "\n")
         end
     end
