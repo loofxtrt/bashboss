@@ -6,7 +6,7 @@ local sourcer = string.format([[
 for script in %s/*.sh; do
     [ -r $script ] && source "$script"
 done
-]], BASH_DIR) -- o string format transforma em ~/.bashrc/*.sh, percorrendo todo arquivo que termina em .sh
+]], BASH_DIR) -- o string format transforma em bashboss/bash/*.sh, percorrendo todos os arquivos que terminam em .sh
 
 local function does_sourcer_already_exists()
     -- abrir e ler o arquivo
