@@ -1,5 +1,6 @@
 local paths = {}
 
-paths.aliases = "/media/luan/seagate/workspace/coding/projects/scripts/bashboss/bashrc"
+BASH_DIR = "/media/luan/seagate/workspace/coding/projects/scripts/bashboss/bash"
+paths.aliases = BASH_DIR .. "/aliases.sh"
 
 return paths
