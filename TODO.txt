@@ -1,0 +1,1 @@
+não atualiza infos que são a mesma linha, mas sofreram alterações
