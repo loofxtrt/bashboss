@@ -1,11 +1,14 @@
 local M = {}
 
--- constantes de paths
-SEAGATE = "/media/luan/seagate"
-WORKSPACE = SEAGATE .. "/workspace"
+DIRECTORIES = require("lua.paths.directories")
+BASH_FILES = require("lua.paths.bash_files")
 
-CODING = WORKSPACE .. "/coding/projects"
-GODOT = WORKSPACE .. "/godot/projects"
+-- constantes de paths
+SEAGATE = DIRECTORIES.SEAGATE
+WORKSPACE = DIRECTORIES.WORKSPACE
+
+CODING = DIRECTORIES.CODING
+GODOT = DIRECTORIES.GODOT
 
 function CD(path)
     -- escrever o comando de cd pro diretório passado pra função. isso só escreve a string do comando, não executa ele
@@ -31,8 +34,7 @@ end
 
 function M.write_aliases()
     -- importar o caminho do aliases.sh
-    local paths = require("lua.paths")
-    local bash_file = paths.aliases
+    local bash_file = BASH_FILES.aliases
 
     -- definir quais aliases vão existir
     local aliases = {
@@ -46,7 +48,7 @@ function M.write_aliases()
 
     -- abrir o arquivo em que os aliases vão ser escritos
     local file = io.open(bash_file, "a")
-    if not file then print("Error while trying to open aliases file"); os.exit(1) end
+    if not file then print("Error while trying to open aliases file: " .. bash_file); os.exit(1) end
 
     -- escrever uma linha no final do arquivo com cada alias da tabela (no formato: alias ='path/aqui')
     for key, value in pairs(aliases) do
