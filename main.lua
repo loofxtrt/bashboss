@@ -35,6 +35,7 @@ local function write_all_aliases()
         confortavel = CD("/media/luan/seagate/workspace/coding/projects/bots/confortavel") .. " && " .. SOURCE("/media/luan/seagate/workspace/coding/projects/bots/confortavel/env/bin/activate && /media/luan/seagate/workspace/coding/projects/bots/confortavel/env/bin/python /media/luan/seagate/workspace/coding/projects/bots/confortavel/main.py")
     }
 
+    -- adicionar todos os grupos numa table e rodar o write_aliases pra cada item dessa table. o _ ignora o índice por não ser necessário
     local all_aliases = { cd_aliases, source_aliases, software_aliases, run_aliases }
     for _, alias_group in ipairs(all_aliases) do
         INOUT.write_aliases(alias_group)

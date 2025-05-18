@@ -21,14 +21,14 @@ end
 
 function M.write_aliases(aliases_table)
     -- importar o caminho do aliases.sh
-    local bash_file = BASH_FILES.ALIASES
+    local aliases_file = BASH_FILES.ALIASES
 
     -- ler quais são as linhas que já existem no arquivo
-    local existing_lines = M.read_existing_data(bash_file)
+    local existing_lines = M.read_existing_data(aliases_file)
 
-    -- abrir o arquivo em que os aliases vão ser escritos
-    local file = io.open(bash_file, "a")
-    if not file then print("Error while trying to open aliases file\nPath: " .. bash_file); os.exit(1) end
+    -- abrir o arquivo em que os aliases vão ser escritos (ex: aliases.sh)
+    local file = io.open(aliases_file, "a")
+    if not file then print("Error while trying to open aliases file\nPath: " .. aliases_file); os.exit(1); end
 
     -- escrever uma linha no final do arquivo com cada alias da tabela (no formato: alias ='comando aqui')
     for key, value in pairs(aliases_table) do
