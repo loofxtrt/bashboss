@@ -1,5 +1,0 @@
-alias coding='cd /media/luan/seagate/workspace/coding/projects'
-alias seagate='cd /media/luan/seagate'
-alias godot='cd /media/luan/seagate/workspace/godot/projects'
-alias actenv='source env/bin/activate'
-alias actvenv='source venv/bin/activate'
