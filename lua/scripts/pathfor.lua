@@ -4,6 +4,8 @@ HOME = os.getenv("HOME")
 local included_paths = {
     appsflatpak = HOME .. "/.local/share/flatpak/exports",
     appsappimages = "/usr/local/bin",
+    fonts = "~/.local/share/fonts",
+    dotdesktop = "~/.local/share/applications",
 }
 
 local function print_included_lines()
