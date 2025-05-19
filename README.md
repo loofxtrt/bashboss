@@ -12,6 +12,5 @@ nf-oct-tools
 - comentários e espaçamento nos .sh  
 
 ## config
-adicionar isso ao ~/.bashrc:  
-`export PATH="$PATH:/media/luan/seagate/workspace/coding/projects/scripts/bashboss"`  
-e depois rodar `source ~/.bashrc`
+rodar o `main.lua`  
+e depois pra garantir a atualização, rodar `source ~/.bashrc`
