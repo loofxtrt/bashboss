@@ -3,7 +3,7 @@
 # diretório raiz do projeto
 PROJECT_DIR="$(dirname "$(readlink -f "$0")")"
 
-# diretório dos scripts em lua
+# diretório dos scripts de lua
 LUA_SCRIPTS="$PROJECT_DIR/lua/scripts"
 
 # nome do subcomando (ex: pathfor)
@@ -16,7 +16,8 @@ SCRIPT_PATH="$LUA_SCRIPTS/$SUBCOMMAND.lua"
 if [[ -f "$SCRIPT_PATH" ]]; then
     lua "$SCRIPT_PATH" "$@"
 else
-    echo "Command not recognized. Available commands:"
+    # texto com fundo constrastante e logo depois, a lista de comandos no diretório de scripts de lua
+    echo -e "\e[7m Command not recognized. Available commands: \e[0m"
     for file in "$LUA_SCRIPTS"/*.lua; do
         cmd=$(basename "$file" .lua)
         echo " $cmd"

@@ -4,6 +4,7 @@ script pra gerenciar o bashrc e o tals
 nf-oct-file_directory  
 nf-fa-long_arrow_right  
 nf-oct-tools  
+nf-oct-tag  
 
 ## todo
 - não atualiza infos que são a mesma linha, mas sofreram alterações  
