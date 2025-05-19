@@ -11,6 +11,7 @@ nf-oct-tools
 - integração com o kswitcher  
 - exports/path  
 - ps1  
+- comentários e espaçamento nos .sh  
 
 ## config
 adicionar isso ao ~/.bashrc:  
