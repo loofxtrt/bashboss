@@ -2,10 +2,12 @@
 HOME = os.getenv("HOME")
 
 local included_paths = {
-    appsflatpak = HOME .. "/.local/share/flatpak/exports"
+    appsflatpak = HOME .. "/.local/share/flatpak/exports",
+    appsappimages = "/usr/local/bin",
 }
 
 local function print_included_lines()
+    -- imprimir cada nome e path de cada item da tabela
     for key, value in pairs(included_paths) do
         print("  " .. key .. "      " .. value)
     end

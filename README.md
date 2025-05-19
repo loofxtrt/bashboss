@@ -1,3 +1,5 @@
+script pra gerenciar o bashrc e o tals
+
 ## icons (hack nerd font)
 nf-oct-file_directory
 nf-fa-long_arrow_right
