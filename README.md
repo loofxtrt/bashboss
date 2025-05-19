@@ -7,9 +7,7 @@ nf-oct-tools
 
 ## todo
 - não atualiza infos que são a mesma linha, mas sofreram alterações  
-- kswitcher não roda source no mesmo terminal  
 - integração com o kswitcher  
-- exports/path  
 - ps1  
 - comentários e espaçamento nos .sh  
 

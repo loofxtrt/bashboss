@@ -57,11 +57,13 @@ local function write_all_export_paths()
         default_path = EXPORT_PATH("/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH")
     }
 
+    -- adicionar os valores que as funções EXPORT_PATH retornam ao script .sh de paths
     for key, value in pairs(exports) do
         INOUT.write_at_end("exports", value, BASH_FILES.EXPORT_PATH)
     end
 end
 
+-- escrever/atualizar todas as categorias
 local function main()
     LOADER.add_loader()
     write_all_aliases()

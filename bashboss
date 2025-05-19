@@ -16,8 +16,7 @@ SCRIPT_PATH="$LUA_SCRIPTS/$SUBCOMMAND.lua"
 if [[ -f "$SCRIPT_PATH" ]]; then
     lua "$SCRIPT_PATH" "$@"
 else
-    echo "Command not recognized"
-    echo "Available commands:"
+    echo "Command not recognized. Available commands:"
     for file in "$LUA_SCRIPTS"/*.lua; do
         cmd=$(basename "$file" .lua)
         echo " $cmd"
