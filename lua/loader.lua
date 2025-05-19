@@ -15,7 +15,7 @@ done
 local function does_loader_already_exists()
     -- abrir e ler o arquivo
     local file = io.open(BASHRC, "r")
-    if not file then print(".bashrc not found at " .. BASHRC); return nil; end
+    if not file then LOG("ERROR", ".bashrc not found at " .. BASHRC); return nil; end
 
     local content = file:read("*a") -- lê o arquivo inteiro
     file:close()
@@ -38,13 +38,13 @@ function M.add_loader()
 
     -- abrir o arquivo
     local file = io.open(BASHRC, "a")
-    if not file then print("Can't open " .. BASHRC); return; end
+    if not file then LOG("ERROR", "Can't open " .. BASHRC); return; end
     
     -- escrever e fechar o arquivo de volta
     file:write(loader)
     file:close()
 
-    print("loader added at " .. BASHRC)
+    LOG("SUCCESS", "Loader added at " .. BASHRC)
 end
 
 return M
