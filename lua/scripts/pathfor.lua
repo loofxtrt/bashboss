@@ -22,7 +22,7 @@ local function print_included_lines()
     for key, value in pairs(included_paths) do
         local pad_size = 6
         local padding = string.rep(" ", max_key_length - #key + pad_size)
-        print(string.format(" %s %s %s", key, padding, value))
+        print(string.format("  %s %s %s", key, padding, value))
     end
 end
 

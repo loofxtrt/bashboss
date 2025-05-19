@@ -20,6 +20,6 @@ else
     echo -e "\e[7m Command not recognized. Available commands: \e[0m"
     for file in "$LUA_SCRIPTS"/*.lua; do
         cmd=$(basename "$file" .lua)
-        echo " $cmd"
+        echo "󰯠  $cmd"
     done
 fi
