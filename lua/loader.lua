@@ -3,6 +3,8 @@ local M = {}
 BASHRC = require("lua.paths.bash_files").BASHRC
 BASH_DIR = require("lua.paths.directories").BASH
 
+LOG = require("lua.logger").log
+
 -- escrever o método pra ler todos os arquivos de um diretório específico no .bashrc apenas caso essas linhas já não existam
 local loader = string.format([[
 for script in %s/*.sh; do
@@ -29,10 +31,10 @@ local function does_loader_already_exists()
     end
 end
 
-function M.ADD_LOADER()
+function M.add_loader()
     -- verificar se o bloco já existe ou não no .bashrc
     local loader_exists = does_loader_already_exists()
-    if loader_exists then print("Loader at " .. BASHRC .. " already exists"); return; end
+    if loader_exists then LOG("INFO", "Loader at " .. BASHRC .. " already exists"); return; end
 
     -- abrir o arquivo
     local file = io.open(BASHRC, "a")

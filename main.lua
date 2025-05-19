@@ -2,8 +2,8 @@ INOUT = require("lua.inout")
 LOADER = require("lua.loader")
 
 COMMANDS = require("lua.commands")
-CD = COMMANDS.CD
-SOURCE = COMMANDS.SOURCE
+CD = COMMANDS.cd
+SOURCE = COMMANDS.source
 
 DIRECTORIES = require("lua.paths.directories")
 SEAGATE = DIRECTORIES.SEAGATE
@@ -45,7 +45,7 @@ local function write_all_aliases()
 end
 
 local function main()
-    LOADER.ADD_LOADER()
+    LOADER.add_loader()
     write_all_aliases()
 end
 
