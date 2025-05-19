@@ -2,8 +2,8 @@ script pra gerenciar o bashrc e o tals
 
 ## icons (hack nerd font)
 nf-oct-file_directory  
-nf-fa-long_arrow_right  
-nf-oct-tools  
+nf-md-wrench_outline  
+nf-md-vector_link  
 
 ## todo
 - não atualiza infos que são a mesma linha, mas sofreram alterações  
