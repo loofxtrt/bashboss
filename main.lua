@@ -22,13 +22,14 @@ local function write_all_aliases()
 
     local source_aliases = {
         actenv = SOURCE("env/bin/activate"),
-        actvenv = SOURCE("venv/bin/activate"),
+        actvenv = SOURCE("venv/bin/activate")
     }
 
     local software_aliases = {
         hyfetch = "USER=luna hyfetch",
         nvconf = CD("~/.config/nvim/"),
-        nvtree = "tree ~/.config/nvim/"
+        nvtree = "tree ~/.config/nvim/",
+        kswitcher = SOURCE("kswitcher")
     }
 
     local run_aliases = {

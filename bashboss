@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# diretório raiz do projeto
+PROJECT_DIR="$(dirname "$(readlink -f "$0")")"
+
+# diretório dos scripts em lua
+LUA_SCRIPTS="$PROJECT_DIR/lua/scripts"
+
+# nome do subcomando (ex: pathfor)
+SUBCOMMAND="$1"
+shift # remover o argumento do índice 0 (que sempre é o próprio comando)
+
+# path do script
+SCRIPT_PATH="$LUA_SCRIPTS/$SUBCOMMAND.lua"
+
+if [[ -f "$SCRIPT_PATH" ]]; then
+    lua "$SCRIPT_PATH" "$@"
+else
+    echo "'$SUBCOMMAND' is not a command"
+    echo "Available commands:"
+    for file in "$LUA_SCRIPTS"/*.lua; do
+        cmd=$(basename "$file" .lua)
+        echo " $cmd"
+    done
+fi
