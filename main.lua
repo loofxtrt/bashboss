@@ -4,6 +4,7 @@ LOADER = require("lua.loader")
 COMMANDS = require("lua.commands")
 CD = COMMANDS.cd
 SOURCE = COMMANDS.source
+EXPORT_PATH = COMMANDS.export_path
 
 DIRECTORIES = require("lua.paths.directories")
 SEAGATE = DIRECTORIES.SEAGATE
@@ -12,7 +13,6 @@ CODING = DIRECTORIES.CODING
 GODOT = DIRECTORIES.GODOT
 
 BASH_FILES = require("lua.paths.bash_files")
-ALIASES = BASH_FILES.ALIASES
 
 local function write_all_aliases()
     local cd_aliases = {
@@ -40,13 +40,23 @@ local function write_all_aliases()
     -- adicionar todos os grupos numa table e rodar o write_aliases pra cada item dessa table. o _ ignora o índice por não ser necessário
     local all_aliases = { cd_aliases, source_aliases, software_aliases, run_aliases }
     for _, alias_group in ipairs(all_aliases) do
-        INOUT.write_aliases(alias_group)
+        INOUT.write_at_end("aliases", alias_group, "alias %s='%s'", BASH_FILES.ALIASES)
     end
+end
+
+local function write_all_export_paths()
+    local exports = {
+        EXPORT_PATH("$HOME/.local/share/yabridge"),
+        EXPORT_PATH("/usr/local/bin/scripts/")
+    }
+
+    INOUT.write_at_end("exports", exports, "", BASH_FILES.EXPORT_PATH)
 end
 
 local function main()
     LOADER.add_loader()
     write_all_aliases()
+    write_all_export_paths()
 end
 
 main()
