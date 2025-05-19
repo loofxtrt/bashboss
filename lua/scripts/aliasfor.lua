@@ -33,6 +33,7 @@ local function aliasfor()
             print(string.format(" %s", line))
         end
 
+        -- fazer a próxima ter o fundo oposto da linha anterior
         is_line_pair = is_line_pair + 1
     end
 
