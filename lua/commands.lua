@@ -10,7 +10,7 @@ function M.source(path)
 end
 
 function M.export_path(path)
-    return "export PATH='$PATH:/'" .. path
+    return "export PATH='$PATH:/" .. path .. "'"
 end
 
 return M

@@ -37,20 +37,26 @@ local function write_all_aliases()
         confortavel = CD("/media/luan/seagate/workspace/coding/projects/bots/confortavel") .. " && " .. SOURCE("/media/luan/seagate/workspace/coding/projects/bots/confortavel/env/bin/activate && /media/luan/seagate/workspace/coding/projects/bots/confortavel/env/bin/python /media/luan/seagate/workspace/coding/projects/bots/confortavel/main.py")
     }
 
-    -- adicionar todos os grupos numa table e rodar o write_aliases pra cada item dessa table. o _ ignora o índice por não ser necessário
+    -- adicionar todos os grupos numa table
     local all_aliases = { cd_aliases, source_aliases, software_aliases, run_aliases }
-    for _, alias_group in ipairs(all_aliases) do
-        INOUT.write_at_end("aliases", alias_group, "alias %s='%s'", BASH_FILES.ALIASES)
+
+    -- pra cada grupo da table, entrar na tabela, formatar o conteúdo dela e enviar pro write_at_end
+    for _, aliases_groups in ipairs(all_aliases) do
+        for key, value in pairs(aliases_groups) do
+            local formatted_alias = string.format("alias %s='%s'", key, value)
+            INOUT.write_at_end("aliases", formatted_alias, BASH_FILES.ALIASES)
+        end 
     end
 end
 
 local function write_all_export_paths()
     local exports = {
-        EXPORT_PATH("$HOME/.local/share/yabridge"),
-        EXPORT_PATH("/usr/local/bin/scripts/")
+        yabridge = EXPORT_PATH("$HOME/.local/share/yabridge"),
+        scripts = EXPORT_PATH("/usr/local/bin/scripts/")
     }
 
-    INOUT.write_at_end("exports", exports, "", BASH_FILES.EXPORT_PATH)
+    INOUT.write_at_end("exports", exports.yabridge, BASH_FILES.EXPORT_PATH)
+    INOUT.write_at_end("exports", exports.scripts, BASH_FILES.EXPORT_PATH)
 end
 
 local function main()

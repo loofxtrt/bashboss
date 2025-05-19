@@ -19,7 +19,7 @@ function M.read_existing_data(path)
     return existing_lines
 end
 
-function M.write_at_end(category_name, content_table, content_format, target_file)
+function M.write_at_end(category_name, content, target_file)
     local existing_lines = M.read_existing_data(target_file) -- ler quais são as linhas que já existem no arquivo
 
     -- abrir o arquivo em que os conteúdos vão ser escritos (ex: aliases.sh)
@@ -30,14 +30,10 @@ function M.write_at_end(category_name, content_table, content_format, target_fil
     end
 
     -- escrever uma linha no final do arquivo com cada conteúdo da tabela formatado 
-    -- (ex, no formato: "alias ='comando aqui'" caso "alias = %s='%s'" tenha sido passado como content format)
-    for key, value in pairs(content_table) do
-        local formatted_content = string.format(content_format, key, value)
-
-        -- só realmente escrever se ela já não existir no arquivo. se não existir, escreve e quebra pra próxima linha
-        if not existing_lines[formatted_content] then
-            file:write(formatted_content .. "\n")
-        end
+    -- (ex, no formato: "alias ='comando aqui'")
+    -- e só realmente escrever se ela já não existir no arquivo. se não existir, escreve e quebra pra próxima linha
+    if not existing_lines[content] then
+        file:write(content .. "\n")
     end
 
     -- finalizar e fechar o arquivo
