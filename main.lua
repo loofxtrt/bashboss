@@ -1,4 +1,5 @@
 INOUT = require("lua.inout")
+LOADER = require("lua.loader")
 
 COMMANDS = require("lua.commands")
 CD = COMMANDS.CD
@@ -44,6 +45,7 @@ local function write_all_aliases()
 end
 
 local function main()
+    LOADER.ADD_LOADER()
     write_all_aliases()
 end
 
