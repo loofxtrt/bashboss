@@ -1,14 +1,8 @@
 #!/usr/bin/env lua
 
-ALIASES = require("paths.bash_files").ALIASES
-LOG = require("logger").log
-
 local function read_existing_aliases()
-    local file = io.open(ALIASES, "r")
-    if not file then
-        LOG(string.format("ERROR", "Error while trying to read aliases file at %s", file))
-        return
-    end
+    local file = io.open("/media/luan/seagate/workspace/coding/projects/scripts/bashboss/bash/aliases.sh", "r")
+    if not file then return; end
 
     local content = file:read("*a")
     file:close()
