@@ -51,12 +51,15 @@ end
 
 local function write_all_export_paths()
     local exports = {
-        yabridge = EXPORT_PATH("$HOME/.local/share/yabridge"),
-        scripts = EXPORT_PATH("/usr/local/bin/scripts/")
+        yabridge = EXPORT_PATH("/$HOME/.local/share/yabridge"),
+        scripts = EXPORT_PATH("/usr/local/bin/scripts/"),
+        bashboss = EXPORT_PATH("/media/luan/seagate/workspace/coding/projects/scripts/bashboss"),
+        default_path = EXPORT_PATH("/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH")
     }
 
-    INOUT.write_at_end("exports", exports.yabridge, BASH_FILES.EXPORT_PATH)
-    INOUT.write_at_end("exports", exports.scripts, BASH_FILES.EXPORT_PATH)
+    for key, value in pairs(exports) do
+        INOUT.write_at_end("exports", value, BASH_FILES.EXPORT_PATH)
+    end
 end
 
 local function main()

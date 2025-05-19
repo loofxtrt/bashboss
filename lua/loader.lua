@@ -7,6 +7,7 @@ LOG = require("lua.logger").log
 
 -- escrever o método pra ler todos os arquivos de um diretório específico no .bashrc apenas caso essas linhas já não existam
 local loader = string.format([[
+# carregar todos os scripts .sh do diretório indicado
 for script in %s/*.sh; do
     [ -r $script ] && source "$script"
 done
