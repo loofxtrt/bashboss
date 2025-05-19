@@ -1,9 +1,9 @@
 local M = {}
 
-BASHRC = require("lua.paths.bash_files").BASHRC
-BASH_DIR = require("lua.paths.directories").BASH
+BASHRC = require("paths.bash_files").BASHRC
+BASH_DIR = require("paths.directories").BASH
 
-LOG = require("lua.logger").log
+LOG = require("logger").log
 
 -- o loader é o responsável por ler e encontrar os arquivos no diretório bash, onde ficam os .sh
 -- escrever o método pra ler todos os arquivos de um diretório específico no .bashrc apenas caso esse bloco já não exista

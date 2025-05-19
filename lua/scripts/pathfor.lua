@@ -1,4 +1,5 @@
 #!/usr/bin/env lua
+
 HOME = os.getenv("HOME")
 
 local included_paths = {

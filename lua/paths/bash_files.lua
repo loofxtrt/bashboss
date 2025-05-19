@@ -1,4 +1,4 @@
-DIRECTORIES = require("lua.paths.directories")
+DIRECTORIES = require("paths.directories")
 BASH_DIRECTORY = DIRECTORIES.BASH
 
 local bash_files = {

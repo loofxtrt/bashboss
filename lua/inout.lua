@@ -1,6 +1,6 @@
 local M = {}
 
-LOG = require("lua.logger").log
+LOG = require("logger").log
 
 function M.read_existing_data(path)
     local existing_lines = {}

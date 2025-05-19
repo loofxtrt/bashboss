@@ -1,18 +1,22 @@
-INOUT = require("lua.inout")
-LOADER = require("lua.loader")
+-- utils
+INOUT = require("inout")
+LOADER = require("loader")
 
-COMMANDS = require("lua.commands")
+-- comandos pra serem escritos no arquivo .sh
+COMMANDS = require("commands")
 CD = COMMANDS.cd
 SOURCE = COMMANDS.source
 EXPORT_PATH = COMMANDS.export_path
 
-DIRECTORIES = require("lua.paths.directories")
+-- caminhos de diretórios
+DIRECTORIES = require("paths.directories")
 SEAGATE = DIRECTORIES.SEAGATE
 WORKSPACE = DIRECTORIES.WORKSPACE
 CODING = DIRECTORIES.CODING
 GODOT = DIRECTORIES.GODOT
 
-BASH_FILES = require("lua.paths.bash_files")
+-- caminhos de arquivos
+BASH_FILES = require("paths.bash_files")
 
 local function write_all_aliases()
     local cd_aliases = {
