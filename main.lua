@@ -51,10 +51,10 @@ end
 
 local function write_all_export_paths()
     local exports = {
+        default_path = EXPORT_PATH("/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"),
         yabridge = EXPORT_PATH("/$HOME/.local/share/yabridge"),
         scripts = EXPORT_PATH("/usr/local/bin/scripts/"),
-        bashboss = EXPORT_PATH("/media/luan/seagate/workspace/coding/projects/scripts/bashboss"),
-        default_path = EXPORT_PATH("/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH")
+        bashboss = EXPORT_PATH("/media/luan/seagate/workspace/coding/projects/scripts/bashboss")
     }
 
     -- adicionar os valores que as funções EXPORT_PATH retornam ao script .sh de paths
@@ -65,7 +65,7 @@ end
 
 -- escrever/atualizar todas as categorias
 local function main()
-    LOADER.add_loader()
+    LOADER.add_loader() -- loader no .bashrc que carrega todos os outros scripts
     write_all_aliases()
     write_all_export_paths()
 end

@@ -5,7 +5,8 @@ BASH_DIR = require("lua.paths.directories").BASH
 
 LOG = require("lua.logger").log
 
--- escrever o método pra ler todos os arquivos de um diretório específico no .bashrc apenas caso essas linhas já não existam
+-- o loader é o responsável por ler e encontrar os arquivos no diretório bash, onde ficam os .sh
+-- escrever o método pra ler todos os arquivos de um diretório específico no .bashrc apenas caso esse bloco já não exista
 local loader = string.format([[
 # carregar todos os scripts .sh do diretório indicado
 for script in %s/*.sh; do
