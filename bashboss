@@ -1,10 +1,8 @@
 #!/bin/bash
+# script que obtem os argumentos de comandos
 
-# diretório raiz do projeto
-PROJECT_DIR="$(dirname "$(readlink -f "$0")")"
-
-# diretório dos scripts de lua
-LUA_SCRIPTS="$PROJECT_DIR/lua/scripts"
+PROJECT_DIR="$(dirname "$(readlink -f "$0")")" # diretório raiz do projeto
+LUA_SCRIPTS="$PROJECT_DIR/lua/scripts" # diretório dos scripts de lua
 
 # nome do subcomando (ex: pathfor)
 SUBCOMMAND="$1"
