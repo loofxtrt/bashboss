@@ -1,3 +1,5 @@
+package.path = "./lua/?.lua;./lua/?/init.lua;" .. package.path
+
 -- utils
 INOUT = require("inout")
 LOADER = require("loader")
@@ -38,7 +40,7 @@ local function write_all_aliases()
     }
 
     local run_aliases = {
-        confortavel = CD("/media/luan/seagate/workspace/coding/projects/bots/confortavel") .. " && " .. SOURCE("/media/luan/seagate/workspace/coding/projects/bots/confortavel/env/bin/activate && /media/luan/seagate/workspace/coding/projects/bots/confortavel/env/bin/python /media/luan/seagate/workspace/coding/projects/bots/confortavel/main.py")
+        confortavel = CD("/mnt/seagate/workspace/coding/projects/bots/confortavel") .. " && " .. SOURCE("/mnt/seagate/workspace/coding/projects/bots/confortavel/env/bin/activate && /mnt/seagate/workspace/coding/projects/bots/confortavel/env/bin/python /mnt/seagate/workspace/coding/projects/bots/confortavel/main.py")
     }
 
     -- adicionar todos os grupos numa table
@@ -58,7 +60,7 @@ local function write_all_export_paths()
         default_path = EXPORT_PATH("/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"),
         yabridge = EXPORT_PATH("/$HOME/.local/share/yabridge"),
         scripts = EXPORT_PATH("/usr/local/bin/scripts/"),
-        bashboss = EXPORT_PATH("/media/luan/seagate/workspace/coding/projects/scripts/bashboss")
+        bashboss = EXPORT_PATH("/mnt/seagate/workspace/coding/projects/scripts/bashboss")
     }
 
     -- adicionar os valores que as funções EXPORT_PATH retornam ao script .sh de paths

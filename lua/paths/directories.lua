@@ -1,5 +1,5 @@
-local seagate = "/media/luan/seagate"
-local workspace = "/media/luan/seagate/workspace"
+local seagate = "/mnt/seagate"
+local workspace = "/mnt/seagate/workspace"
 
 local coding = workspace .. "/coding/projects"
 local godot = workspace .. "/godot/projects"
