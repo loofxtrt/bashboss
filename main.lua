@@ -36,7 +36,8 @@ local function write_all_aliases()
         hyfetch = "USER=luna hyfetch",
         nvconf = CD("~/.config/nvim/"),
         nvtree = "tree ~/.config/nvim/",
-        kswitcher = SOURCE("kswitcher")
+        kswitcher = SOURCE("kswitcher"),
+        recall = "bash /mnt/seagate/workspace/coding/projects/scripts/recall-writter/recall-writter.sh"
     }
 
     local run_aliases = {
