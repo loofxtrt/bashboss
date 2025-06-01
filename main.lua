@@ -37,7 +37,8 @@ local function write_all_aliases()
         nvconf = CD("~/.config/nvim/"),
         nvtree = "tree ~/.config/nvim/",
         kswitcher = SOURCE("kswitcher"),
-        recall = "bash /mnt/seagate/workspace/coding/projects/scripts/recall-writer/recall-writer.sh"
+        recall = "bash /mnt/seagate/workspace/coding/projects/scripts/recall-writer/recall-writer.sh",
+        worder = "cd /mnt/seagate/workspace/coding/projects/scripts/worder && echo python3 main.py"
     }
 
     local run_aliases = {
